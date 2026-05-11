@@ -1,0 +1,189 @@
+[gd_scene format=3 uid="uid://elst0xn32iil"]
+
+[ext_resource type="Script" uid="uid://dceffjs8rpmpn" path="res://game.gd" id="1_xkndl"]
+[ext_resource type="Script" uid="uid://dsxm1mqbs02yw" path="res://board.gd" id="2_sb48q"]
+[ext_resource type="Script" uid="uid://cg0jb4fcolnbw" path="res://background.gd" id="2_t88pq"]
+[ext_resource type="Script" uid="uid://du86lf0epq20x" path="res://plane.gd" id="2_u44n3"]
+[ext_resource type="Script" uid="uid://dcw646q1kt6kk" path="res://plane_2.gd" id="4_t88pq"]
+
+[node name="Game" type="Node2D" unique_id=595985313]
+script = ExtResource("1_xkndl")
+
+[node name="Background" type="Node2D" parent="." unique_id=776954758]
+script = ExtResource("2_t88pq")
+
+[node name="Board" type="Node2D" parent="." unique_id=902056145]
+script = ExtResource("2_sb48q")
+
+[node name="Plane" type="Node2D" parent="." unique_id=748033961]
+script = ExtResource("2_u44n3")
+
+[node name="Polygon2D" type="Polygon2D" parent="Plane" unique_id=977179552]
+color = Color(0.15, 0.85, 0.25, 1)
+
+[node name="Plane2" type="Node2D" parent="." unique_id=1977078697]
+script = ExtResource("4_t88pq")
+
+[node name="Polygon2D" type="Polygon2D" parent="Plane2" unique_id=1498932164]
+color = Color(0.092, 0.314, 1, 1)
+
+[node name="Plane3" type="Node2D" parent="." unique_id=1589320000]
+script = ExtResource("4_t88pq")
+plane_color = Color(1, 0.25, 0.2, 1)
+
+[node name="Polygon2D" type="Polygon2D" parent="Plane3" unique_id=1321604634]
+color = Color(1, 0.25, 0.2, 1)
+
+[node name="Plane4" type="Node2D" parent="." unique_id=1772312050]
+script = ExtResource("4_t88pq")
+plane_color = Color(1, 0.75, 0.15, 1)
+
+[node name="Polygon2D" type="Polygon2D" parent="Plane4" unique_id=1598491219]
+color = Color(1, 0.75, 0.15, 1)
+
+[node name="UI" type="CanvasLayer" parent="." unique_id=1803024861]
+
+[node name="ScoreLabel" type="Label" parent="UI" unique_id=2073213049]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -61.0
+offset_bottom = 23.0
+grow_horizontal = 0
+text = "Score: 0	"
+
+[node name="InstabilityLabel" type="Label" parent="UI" unique_id=97716638]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -183.0
+offset_top = 26.0
+offset_bottom = 49.0
+grow_horizontal = 0
+text = "Global Instability: 0 / 10"
+
+[node name="AidLoadoutLabel" type="Label" parent="UI" unique_id=1861976172]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -183.0
+offset_top = 50.0
+offset_bottom = 73.0
+grow_horizontal = 0
+text = "Current Aid: --"
+
+[node name="StatusLabel" type="Label" parent="UI" unique_id=220359547]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -23.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="QuantumStateLabel" type="Label" parent="UI" unique_id=1859526041]
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -11.5
+offset_right = 40.0
+offset_bottom = 11.5
+grow_vertical = 2
+
+[node name="QuantumProbabilityLabel" type="Label" parent="UI" unique_id=1237875586]
+offset_top = 100.0
+offset_right = 40.0
+offset_bottom = 123.0
+
+[node name="TitleLabel" type="Label" parent="UI" unique_id=932308368]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -103.5
+offset_right = 103.5
+offset_bottom = 23.0
+grow_horizontal = 2
+text = "Quantum Aeroplane"
+horizontal_alignment = 1
+
+[node name="ButtonBar" type="HBoxContainer" parent="UI" unique_id=1754986251]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -31.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="MoveButton" type="Button" parent="UI/ButtonBar" unique_id=1154526517]
+layout_mode = 2
+text = "Move"
+
+[node name="QuantumMoveButton" type="Button" parent="UI/ButtonBar" unique_id=1320245810]
+layout_mode = 2
+text = "Quantum Move"
+
+[node name="BoostButton" type="Button" parent="UI/ButtonBar" unique_id=1698350582]
+layout_mode = 2
+text = "Phase Shift"
+
+[node name="StabilizeButton" type="Button" parent="UI/ButtonBar" unique_id=1457140189]
+layout_mode = 2
+text = "Interference"
+
+[node name="EntangleButton" type="Button" parent="UI/ButtonBar" unique_id=985923352]
+layout_mode = 2
+text = "Entangle"
+
+[node name="MeasureButton" type="Button" parent="UI/ButtonBar" unique_id=2070462624]
+layout_mode = 2
+text = "Measure"
+
+[node name="ChangeAidButton" type="Button" parent="UI/ButtonBar" unique_id=1881831610]
+layout_mode = 2
+text = "Change Aid"
+
+[node name="CreateNewGame" type="Button" parent="UI/ButtonBar" unique_id=1300907192]
+layout_mode = 2
+text = "New Game"
+
+[node name="SaveGameButton" type="Button" parent="UI/ButtonBar" unique_id=1108838708]
+layout_mode = 2
+text = "Save Game"
+
+[node name="MainMenuButton" type="Button" parent="UI/ButtonBar" unique_id=1287941518]
+layout_mode = 2
+text = "Main Menu"
+
+[node name="EndGamePopup" type="Panel" parent="UI" unique_id=1989140918]
+visible = false
+
+[node name="EndGameTitleLabel" type="Label" parent="UI/EndGamePopup" unique_id=1414947024]
+layout_mode = 0
+
+[node name="EndGameReportLabel" type="Label" parent="UI/EndGamePopup" unique_id=1800012323]
+layout_mode = 0
+
+[node name="EndGameNewGameButton" type="Button" parent="UI/EndGamePopup" unique_id=1302355186]
+layout_mode = 0
+text = "New Game"
+
+[node name="EndGameMainMenuButton" type="Button" parent="UI/EndGamePopup" unique_id=490496904]
+layout_mode = 0
+text = "Main Menu"
+
+[connection signal="pressed" from="UI/ButtonBar/MoveButton" to="." method="_on_move_button_pressed"]
+[connection signal="pressed" from="UI/ButtonBar/QuantumMoveButton" to="." method="_on_quantum_move_button_pressed"]
+[connection signal="pressed" from="UI/ButtonBar/BoostButton" to="." method="_on_boost_button_pressed"]
+[connection signal="pressed" from="UI/ButtonBar/StabilizeButton" to="." method="_on_stabilize_button_pressed"]
+[connection signal="pressed" from="UI/ButtonBar/EntangleButton" to="." method="_on_entangle_button_pressed"]
+[connection signal="pressed" from="UI/ButtonBar/MeasureButton" to="." method="_on_measure_button_pressed"]
+[connection signal="pressed" from="UI/ButtonBar/ChangeAidButton" to="." method="_on_change_aid_button_pressed"]
+[connection signal="pressed" from="UI/ButtonBar/CreateNewGame" to="." method="_on_create_new_game_pressed"]
+[connection signal="pressed" from="UI/ButtonBar/SaveGameButton" to="." method="_on_save_game_button_pressed"]
+[connection signal="pressed" from="UI/ButtonBar/MainMenuButton" to="." method="_on_main_menu_button_pressed"]
+[connection signal="pressed" from="UI/EndGamePopup/EndGameNewGameButton" to="." method="_on_end_game_new_game_pressed"]
+[connection signal="pressed" from="UI/EndGamePopup/EndGameMainMenuButton" to="." method="_on_end_game_main_menu_pressed"]
