@@ -12,6 +12,7 @@ export/
 *.x86_64
 *.app
 *.zip
+*.pck
 
 # Temporary files
 *.tmp
