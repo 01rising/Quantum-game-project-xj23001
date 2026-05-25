@@ -1,0 +1,31 @@
+# Godot 4 imported/generated files
+.godot/
+.import/
+
+# Godot export/build outputs
+builds/
+exports/
+export/
+*.apk
+*.aab
+*.exe
+*.x86_64
+*.app
+*.zip
+
+# Temporary files
+*.tmp
+*.temp
+*.bak
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor/IDE files
+.vscode/
+.idea/
+
+# Logs
+*.log

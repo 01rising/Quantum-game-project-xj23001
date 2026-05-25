@@ -1,0 +1,99 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://MainMenu.gd" id="1_menu"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_menu")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.035, 0.065, 0.12, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_right = 40
+theme_override_constants/margin_bottom = 40
+
+[node name="CenterContainer" type="CenterContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/CenterContainer"]
+layout_mode = 2
+theme_override_constants/separation = 18
+alignment = 1
+
+[node name="TitleLabel" type="Label" parent="MarginContainer/CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.92, 0.97, 1, 1)
+theme_override_font_sizes/font_size = 42
+text = "Quantum Aeroplane Chess"
+horizontal_alignment = 1
+
+
+[node name="StoryLabel" type="RichTextLabel" parent="MarginContainer/CenterContainer/VBoxContainer"]
+layout_mode = 2
+custom_minimum_size = Vector2(520, 120)
+theme_override_colors/font_color = Color(0.82, 0.9, 0.96, 1)
+bbcode_enabled = false
+text = "Year 2042.\n\nGlobal crisis zones are appearing faster than aid networks can respond.\n\nYou command a quantum-assisted humanitarian air fleet.\nUse oracle routing, amplification, and measurement to deliver aid before instability reaches the breaking point."
+
+
+[node name="ReliefTeamRow" type="HBoxContainer" parent="MarginContainer/CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 16
+alignment = 1
+
+[node name="ReliefTeamsLabel" type="Label" parent="MarginContainer/CenterContainer/VBoxContainer/ReliefTeamRow"]
+custom_minimum_size = Vector2(220, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.82, 0.9, 0.96, 1)
+theme_override_font_sizes/font_size = 18
+text = "Number of Relief Teams:"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="PlayerCountOption" type="OptionButton" parent="MarginContainer/CenterContainer/VBoxContainer/ReliefTeamRow"]
+custom_minimum_size = Vector2(170, 40)
+layout_mode = 2
+
+[node name="NewGameButton" type="Button" parent="MarginContainer/CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(220, 48)
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "New Game"
+
+[node name="LoadGameButton" type="Button" parent="MarginContainer/CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(220, 48)
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "Load Game"
+
+[node name="TutorialButton" type="Button" parent="MarginContainer/CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(220, 48)
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "Tutorial"
+
+[node name="QuitButton" type="Button" parent="MarginContainer/CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(220, 48)
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "Quit"
