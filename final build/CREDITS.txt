@@ -1,0 +1,6 @@
+
+Game assets:
+- Kenney game assets: https://kenney.nl/assets
+  Used under Creative Commons CC0 / public domain license.
+
+Project created for educational use.

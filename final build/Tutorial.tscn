@@ -1,6 +1,22 @@
-[gd_scene load_steps=2 format=3]
+[gd_scene load_steps=3 format=3]
 
 [ext_resource type="Script" path="res://Tutorial.gd" id="1_tutorial"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_briefing_panel"]
+bg_color = Color(0.015, 0.045, 0.085, 0.9)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.35, 0.85, 1, 0.85)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+content_margin_left = 18.0
+content_margin_top = 16.0
+content_margin_right = 18.0
+content_margin_bottom = 16.0
 
 [node name="Tutorial" type="Control"]
 layout_mode = 3
@@ -31,102 +47,99 @@ offset_right = 170.0
 offset_bottom = 86.0
 grow_horizontal = 2
 theme_override_colors/font_color = Color(0.92, 0.97, 1, 1)
-theme_override_font_sizes/font_size = 34
-text = "Tutorial"
+theme_override_font_sizes/font_size = 40
+text = "Mission Briefing"
 horizontal_alignment = 1
 
-[node name="TutorialText" type="RichTextLabel" parent="."]
+[node name="BriefingPanel" type="PanelContainer" parent="."]
 layout_mode = 0
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -390.0
-offset_top = -230.0
-offset_right = 390.0
-offset_bottom = 218.0
+offset_left = -430.0
+offset_top = -235.0
+offset_right = 430.0
+offset_bottom = 225.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_briefing_panel")
+
+[node name="TutorialText" type="RichTextLabel" parent="BriefingPanel"]
+layout_mode = 0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/default_color = Color(0.84, 0.91, 0.96, 1)
-theme_override_font_sizes/normal_font_size = 17
+theme_override_font_sizes/normal_font_size = 18
 bbcode_enabled = true
-text = "[font_size=24][color=#eef7ff]Goal[/color][/font_size]
-Players control humanitarian aid aircraft. The goal is to deliver aid to crisis zones and reach the target impact score before global instability becomes too high.
+text = "[font_size=24][color=#eef7ff]MISSION[/color][/font_size]
+Climate disasters are spreading across the crisis map. Your relief teams must deliver the correct aid before instability becomes uncontrollable.
 
-[font_size=24][color=#eef7ff]Airports[/color][/font_size]
-Players start inside airports. Use Move 1 to take off onto your route entry tile.
+[font_size=24][color=#eef7ff]HOW TO PLAY[/color][/font_size]
+Roll to move your team around the board.
+Land on crisis tiles to respond.
+Use the correct aid type to reduce or clear the crisis.
 
-[font_size=24][color=#eef7ff]Crisis Zones[/color][/font_size]
-Crisis tiles are marked with ! and a severity number.
-Example:
-!1 = low severity
-!2 = medium severity
-!3 = high severity
+[font_size=24][color=#eef7ff]AID MATCHES[/color][/font_size]
+Flood -> Water Rescue
+Wildfire -> Fire Response
+Medical -> Medical Supplies
+Infrastructure -> Repair Team
+Food Shortage -> Food Aid
 
-[font_size=24][color=#eef7ff]Crisis Types[/color][/font_size]
-FL = Flood
-WF = Wildfire
-MD = Medical Emergency
-IN = Infrastructure Failure
-FD = Food Shortage
+[font_size=24][color=#eef7ff]QUANTUM TOOLS[/color][/font_size]
+Use quantum abilities to predict, boost, or alter movement. These tools can help, but instability can still rise.
 
-[font_size=24][color=#eef7ff]Aid Loadouts[/color][/font_size]
-Each player carries a type of aid:
-Water Rescue
-Fire Response
-Medical Supplies
-Repair Team
-Food Aid
+[font_size=24][color=#eef7ff]WIN CONDITION[/color][/font_size]
+Stabilize as many crises as possible before the world reaches critical instability."
 
-[font_size=24][color=#eef7ff]Matching Aid[/color][/font_size]
-Delivering the correct aid to the correct crisis gives better results.
-Correct aid gives bonus impact points and reduces global instability.
-Incorrect aid still helps, but gives fewer points.
+[node name="PageLabel" type="Label" parent="."]
+layout_mode = 0
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -110.0
+offset_top = 520.0
+offset_right = 110.0
+offset_bottom = 560.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.76, 0.9, 1, 1)
+theme_override_font_sizes/font_size = 16
+text = "Page 1 of 4"
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[font_size=24][color=#eef7ff]Change Aid[/color][/font_size]
-Players can change their aid loadout, but this costs a turn. This represents preparing the correct response before deployment.
+[node name="PreviousButton" type="Button" parent="."]
+custom_minimum_size = Vector2(160, 42)
+layout_mode = 0
+anchors_preset = 5
+anchor_left = 0.25
+anchor_right = 0.25
+offset_left = -90.0
+offset_top = 610.0
+offset_right = 90.0
+offset_bottom = 652.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 18
+text = "Previous"
 
-[font_size=24][color=#eef7ff]Global Instability[/color][/font_size]
-Unresolved crises escalate over time. If high-severity crises are ignored, global instability increases. If instability reaches the maximum, everyone loses.
-
-[font_size=24][color=#eef7ff]Quantum Circuit Movement[/color][/font_size]
-Instead of rolling a classical dice, players can use a quantum circuit movement system.
-
-[font_size=24][color=#eef7ff]Create Superposition[/color][/font_size]
-Creates a 3-qubit movement register with possible states from |000⟩ to |111⟩.
-
-[font_size=24][color=#eef7ff]Oracle[/color][/font_size]
-The oracle marks movement states that would reach crisis zones.
-
-[font_size=24][color=#eef7ff]Amplify[/color][/font_size]
-Amplification increases the chance of oracle-marked crisis routes.
-
-[font_size=24][color=#eef7ff]Entangle[/color][/font_size]
-Entanglement links the current player's movement register with another player's aircraft. Measuring one can collapse both.
-
-[font_size=24][color=#eef7ff]Measure[/color][/font_size]
-Measurement collapses the quantum state into one final movement result.
-
-[font_size=24][color=#eef7ff]Move 1[/color][/font_size]
-Use Move 1 to launch from the airport and move your aircraft along the route.
-
-[font_size=24][color=#eef7ff]Change Aid[/color][/font_size]
-Change Aid cycles the current player's aid loadout and costs a turn.
-
-[font_size=24][color=#eef7ff]Save Game[/color][/font_size]
-Use Save Game to save your current session and Load Game to continue later.
-
-[font_size=24][color=#eef7ff]Main Menu[/color][/font_size]
-Return to the main menu at any time with the Main Menu button.
-
-[font_size=24][color=#eef7ff]Winning[/color][/font_size]
-A player wins by reaching the target humanitarian impact score.
-
-[font_size=24][color=#eef7ff]Shared Loss[/color][/font_size]
-If global instability reaches the maximum, all players lose because the crisis system has gone out of control."
-
-text = "In a near-future world affected by climate disasters, humanitarian aviation teams use quantum navigation to respond to global crises. Players compete for humanitarian impact, but if crises are ignored, global instability rises and everyone loses.\n\n[font_size=24][color=#eef7ff]Goal[/color][/font_size]\nPlayers control humanitarian aid aircraft. The goal is to deliver aid to crisis zones and reach the target impact score before global instability becomes too high.\n\n[font_size=24][color=#eef7ff]Airports[/color][/font_size]\nPlayers start inside airports. Use Move 1 to take off onto your route entry tile.\n\n[font_size=24][color=#eef7ff]Crisis Zones[/color][/font_size]\nCrisis tiles are marked with ! and a severity number.\nExample:\n!1 = low severity\n!2 = medium severity\n!3 = high severity\n\n[font_size=24][color=#eef7ff]Crisis Types[/color][/font_size]\nFL = Flood\nWF = Wildfire\nMD = Medical Emergency\nIN = Infrastructure Failure\nFD = Food Shortage\n\n[font_size=24][color=#eef7ff]Aid Loadouts[/color][/font_size]\nEach player carries a type of aid:\nWater Rescue\nFire Response\nMedical Supplies\nRepair Team\nFood Aid\n\n[font_size=24][color=#eef7ff]Matching Aid[/color][/font_size]\nDelivering the correct aid to the correct crisis gives better results.\nCorrect aid gives bonus impact points and reduces global instability.\nIncorrect aid still helps, but gives fewer points.\n\n[font_size=24][color=#eef7ff]Change Aid[/color][/font_size]\nPlayers can change their aid loadout, but this costs a turn. This represents preparing the correct response before deployment.\n\n[font_size=24][color=#eef7ff]Global Instability[/color][/font_size]\nUnresolved crises escalate over time. If high-severity crises are ignored, global instability increases. If instability reaches the maximum, everyone loses.\n\n[font_size=24][color=#eef7ff]Quantum Circuit Movement[/color][/font_size]\nInstead of rolling a classical dice, players can use a quantum circuit movement system.\n\n[font_size=24][color=#eef7ff]Create Superposition[/color][/font_size]\nCreates a 3-qubit movement register with possible states from |000⟩ to |111⟩.\n\n[font_size=24][color=#eef7ff]Oracle[/color][/font_size]\nThe oracle marks movement states that would reach crisis zones.\n\n[font_size=24][color=#eef7ff]Amplify[/color][/font_size]\nAmplification increases the chance of oracle-marked crisis routes.\n\n[font_size=24][color=#eef7ff]Entangle[/color][/font_size]\nEntanglement links the current player's movement register with another player's aircraft. Measuring one can collapse both.\n\n[font_size=24][color=#eef7ff]Measure[/color][/font_size]\nMeasurement collapses the quantum state into one final movement result.\n\n[font_size=24][color=#eef7ff]Move 1[/color][/font_size]\nUse Move 1 to launch from the airport and move your aircraft along the route.\n\n[font_size=24][color=#eef7ff]Change Aid[/color][/font_size]\nChange Aid cycles the current player's aid loadout and costs a turn.\n\n[font_size=24][color=#eef7ff]Save Game[/color][/font_size]\nUse Save Game to save your current session and Load Game to continue later.\n\n[font_size=24][color=#eef7ff]Main Menu[/color][/font_size]\nReturn to the main menu at any time with the Main Menu button.\n\n[font_size=24][color=#eef7ff]Winning[/color][/font_size]\nA player wins by reaching the target humanitarian impact score.\n\n[font_size=24][color=#eef7ff]Shared Loss[/color][/font_size]\nIf global instability reaches the maximum, all players lose because the crisis system has gone out of control."
+[node name="NextButton" type="Button" parent="."]
+custom_minimum_size = Vector2(160, 42)
+layout_mode = 0
+anchors_preset = 5
+anchor_left = 0.75
+anchor_right = 0.75
+offset_left = -90.0
+offset_top = 610.0
+offset_right = 90.0
+offset_bottom = 652.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 18
+text = "Next"
 
 [node name="BackButton" type="Button" parent="."]
 custom_minimum_size = Vector2(180, 40)
@@ -135,9 +148,9 @@ anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -90.0
-offset_top = 626.0
+offset_top = 690.0
 offset_right = 90.0
-offset_bottom = 666.0
+offset_bottom = 730.0
 grow_horizontal = 2
 theme_override_font_sizes/font_size = 18
 text = "Back"
